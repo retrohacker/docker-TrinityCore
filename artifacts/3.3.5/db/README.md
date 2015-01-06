@@ -17,9 +17,15 @@ To run the TrinityCore server, you must run three images: `trinitycore/db`, `tri
 
 To setup the database, simply run:
 
-`docker run -d --name tc-db`
+`docker run -d -e "MYSQL_ROOT_PASSWORD=GreatBeyond" --name tc-db`
 
-The `-d` instructs docker to run this as a daemon. `--name` gives us a static name that we will use later on when linking this container to other docker containers. *NOTE* do not expose any ports on local host unless you know what you are doing, we can greatly limit access to our database using docker.
+### Description
+
+* The `-d` instructs docker to run this as a daemon.
+* `-e "MYSQL_ROOT_PASSWORD=GreatBeyond"` the password for our database. This *CAN NOT* be changed, it must remain `GreatBeyond`. Case matters.
+* `--name` gives us a static name that we will use later on when linking this container to other docker containers.
+
+*NOTE* do not expose any ports on local host unless you know what you are doing, we can greatly limit access to our database using docker.
 
 ### Persistant data
 
@@ -29,6 +35,6 @@ With the above command, everytime you delete the container you will loose *all* 
 
 where `/path/to/data` is the path to the unzipped file you downloaded.
 
-# AuthServer
+## AuthServer
 
 
