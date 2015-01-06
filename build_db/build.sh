@@ -8,21 +8,21 @@ bullet_list () {
 }
 
 print_status "Uploading database scheme..."
-cat /sql/create/create_mysql.sql | mysql -hmysql -P3306 -uroot -pfuckitshipit
+cat /sql/create/create_mysql.sql | mysql -hmysql -P3306 -uroot -pGreatBeyond
 
 print_status "Creating auth tables..."
-cat /sql/base/auth_database.sql | mysql -hmysql -P3306 -uroot -pfuckitshipit -Dauth
+cat /sql/base/auth_database.sql | mysql -hmysql -P3306 -uroot -pGreatBeyond -Dauth
 
 print_status "Creating character tables..."
-cat /sql/base/characters_database.sql | mysql -hmysql -P3306 -uroot -pfuckitshipit -Dcharacters
+cat /sql/base/characters_database.sql | mysql -hmysql -P3306 -uroot -pGreatBeyond -Dcharacters
 
 print_status "Creating world tables and populating data..."
-cat /sql/TDB_full_*.sql | mysql -hmysql -P3306 -uroot -pfuckitshipit -Dworld
+cat /sql/TDB_full_*.sql | mysql -hmysql -P3306 -uroot -pGreatBeyond -Dworld
 
 print_status "Patchin' world with updates..."
 for file in /sql/updates/world/*.sql; do
   bullet_list ${file}
-  cat ${file} | mysql -hmysql -P3306 -uroot -pfuckitshipit -Dworld
+  cat ${file} | mysql -hmysql -P3306 -uroot -pGreatBeyond -Dworld
 done
 
 print_status "Fixing ownership of created files"

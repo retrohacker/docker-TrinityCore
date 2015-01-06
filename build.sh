@@ -158,5 +158,3 @@ print_section "Cleanup"
     rm -rf ${DIR_TC}
   print_status "Cleaning up generated tools"
     rm -rf ${DIR_TOOLS}
-    rm ${DIR_AUTHSERVER}/authserver
-    rm ${DIR_WORLDSERVER}/worldserver
